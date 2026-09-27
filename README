@@ -1,0 +1,22 @@
+Guitar UI Experience:
+
+A front-end project showcasing interactive guitar-related UI components, including accordions, tabs, rotators, and scroll-based navigation. This project is a work in progress and will expand as new components are added.
+
+Current Features
+- Banner image
+- Nav bar with links to future sections
+- Interactive accordion sections (Benefits, Accessories)
+- Custom diamond icons with active state toggling
+- Smooth scroll behavior with scroll-margin offset
+- Fretboard-inspired UI styling
+
+Tech Stack
+- HTML
+- CSS
+- JavaScript
+
+Running the Project
+Open index.html in a browser or use a local server (Live Server, etc.)
+
+Work in Progress
+More sections and UI components will be added as development continues.

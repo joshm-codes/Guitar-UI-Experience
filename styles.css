@@ -1,0 +1,243 @@
+.page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+body {
+      font-family: Georgia, serif;
+      padding: 16px;
+      line-height: 1.6;
+      color:#333;
+    
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255, 245, 225, 0.85),
+          rgba(250, 235, 205, 0.85)
+        ),
+        repeating-linear-gradient(
+          90deg,
+          rgba(0,0,0,0.12) 0px,
+          rgba(0,0,0,0.12) 2px,
+          rgba(0,0,0,0) 4px,
+          rgba(0,0,0,0) 12px
+        );
+      background-size: 100% 100%, auto;
+      background-repeat: no-repeat, repeat;
+    }
+
+    
+.site-header{
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: #4a2e1f;
+    color: rgba(255,250,240,0.9);
+    padding: 10px 15px;
+    margin: 0 auto 2px auto;
+    border-radius: 12px 12px 0 0;
+    font-size: 35px;
+}
+.guitar-banner{
+    position: relative;
+    width: 100%;
+    height:400px;
+    overflow: hidden;
+}
+.guitar-banner img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+nav{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background:  #68402a;
+    border-radius: 0 0 12px 12px;
+}
+.nav li a {
+  color: white;
+  text-decoration: underline;
+  padding: 10px 14px;
+  display: block;
+  border-radius: 0 0 12px 12px;
+}
+.nav li a.active {
+  color: #e67e22;
+  font-weight: bold;
+  border-bottom: 2px solid #e67e22;
+}
+.nav li a:hover {
+  color: #bb8d64;
+  font-weight: bold;
+  border-bottom: 2px solid #e67e22;
+}
+header h2{
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 12px;
+    font-size: 24px;
+    background: #4a2e1f;
+    color: rgba(255,250,240,0.9);
+    padding: 20px 30px;
+}
+.scroll-section{
+    padding: 50px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+.scroll-section h1,
+.scroll-section h2 {
+    margin-bottom: 24px;   
+}
+.accordion-item{
+    scroll-margin-top: 45px;
+}
+.accordion {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto;
+  border: 3px solid #b38b59;
+  border-radius: 4px;
+  background: url('https://i.imgur.com/8fKQ8QF.jpg'); /* wood grain */
+  background-size: cover;
+  padding: 0; /* REQUIRED for full-width frets */
+  overflow: visible;
+}
+.accordion-header {
+  width: 100%;
+  position: relative;
+  height: 110px;
+
+  /* Full-width fret wood pattern */
+  background: repeating-linear-gradient(
+    90deg,
+    #4a2e1f,
+    #4a2e1f 12px,
+    #3e271a 12px,
+    #3e271a 24px
+  );
+  background-size: 100% 100%; /* ensures full coverage */
+
+  color: #fff;
+  padding: 0 20px; /* no vertical padding so fret spans fully */
+  font-size: 20px;
+  border: none;
+  border-radius: 0 !important; /* fretboards are not rounded */
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: inset 0 -4px 6px rgba(0,0,0,0.4);
+}
+.accordion-header {
+  cursor: pointer;
+  transition: color .25s ease, transform .25s ease;
+}
+.accordion-header:hover{
+  color:#b38b59;
+  transform: scale(1.02);
+}
+.accordion-header .icon {
+  background: transparent;
+}
+
+/* Metal fret bar */
+.accordion-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: linear-gradient(to bottom, #d9d9d9, #8f8f8f);
+}
+
+/* Nut (first fret) */
+.accordion-item:first-child .accordion-header::before {
+  background: linear-gradient(to bottom, #f5f5f5, #cfcfcf);
+  height: 15px;
+}
+.accordion-item:nth-child(3) .accordion-header::after,
+.accordion-item:nth-child(5) .accordion-header::after,
+.accordion-item:nth-child(7) .accordion-header::after,
+.accordion-item:nth-child(9) .accordion-header::after,
+.accordion-item:nth-child(12) .accordion-header::after,
+.accordion-item:nth-child(15) .accordion-header::after,
+.accordion-item:nth-child(17) .accordion-header::after,
+.accordion-item:nth-child(19) .accordion-header::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 18px;
+  width: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+
+/* Double dot at fret 12 */
+/* Make sure the icon can hold positioned elements */
+.accordion-header .icon {
+    position: relative;
+}
+
+/* Add the right-side dot for the 12th fret */
+.accordion-item:nth-child(12) .accordion-header .icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%; /* places the dot immediately to the left of the + */
+    transform: translateY(-50%);
+    height: 18px;   /* match your existing dot size */
+    width: 18px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0,0,0,0.4);
+    pointer-events: none;
+}
+
+.accordion-item {
+  margin: 0;
+  padding: 0;
+  border-bottom: none;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+
+  background: #b38b59;
+  /*background: rgba(255, 255, 255, 0.85);*/
+  padding: 0 20px;
+  border-bottom: 2px solid #b38b59;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 2000px;
+  padding: 20px;
+}
+
+.accordion-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4a2e1f;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
