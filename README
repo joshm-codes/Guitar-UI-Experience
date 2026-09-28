@@ -10,6 +10,18 @@ Current Features
 - Smooth scroll behavior with scroll-margin offset
 - Fretboard-inspired UI styling
 
+Acoustic Guitar Tabs Component(New Section):
+
+A reusable, self contained tab section representing six common acoustic guitar body styles.  This section contains the HTML, CSS and Javascript needed to render and control the tab interface.
+
+- HTML: markup for tab buttons and panels
+- CSS: spacing, colors, images, active tab states, hover effects
+- Javascript: reusable tab component logic
+    * Querying tab buttons and tab panels
+    * Managing active states
+    * Ensures only one tab open at a time
+This component is designed to present acoustic guitar body types in a clean and interactive layout.  It will also serve as a reusable component that can be used for a future electric guitar tab section.
+
 Tech Stack
 - HTML
 - CSS
@@ -20,3 +32,4 @@ Open index.html in a browser or use a local server (Live Server, etc.)
 
 Work in Progress
 More sections and UI components will be added as development continues.
+
