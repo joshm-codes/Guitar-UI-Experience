@@ -2,7 +2,7 @@ Guitar UI Experience:
 
 A front-end project showcasing interactive guitar-related UI components, including accordions, tabs, rotators, and scroll-based navigation. This project is a work in progress and will expand as new components are added.
 
-Current Features
+Current Features:
 - Banner image
 - Nav bar with links to future sections
 - Interactive accordion sections (Benefits, Accessories)
@@ -10,17 +10,30 @@ Current Features
 - Smooth scroll behavior with scroll-margin offset
 - Fretboard-inspired UI styling
 
-Acoustic Guitar Tabs Component(New Section):
+- Acoustic Guitar Tabs Component(New Section):
+    * A reusable, self contained tab section representing six common acoustic guitar body styles.  This section contains the HTML, CSS and   Javascript needed to render and control the tab interface.
 
-A reusable, self contained tab section representing six common acoustic guitar body styles.  This section contains the HTML, CSS and Javascript needed to render and control the tab interface.
+        - HTML: markup for tab buttons and panels
+        - CSS: spacing, colors, images, active tab states, hover effects
+        - Javascript: reusable tab component logic
+            * Querying tab buttons and tab panels
+            * Managing active states
+            * Ensures only one tab open at a time
+        This component is designed to present acoustic guitar body types in a clean and interactive layout.  It will also serve as a reusable component that can be used for a future electric guitar tab section.
 
-- HTML: markup for tab buttons and panels
-- CSS: spacing, colors, images, active tab states, hover effects
-- Javascript: reusable tab component logic
-    * Querying tab buttons and tab panels
-    * Managing active states
-    * Ensures only one tab open at a time
-This component is designed to present acoustic guitar body types in a clean and interactive layout.  It will also serve as a reusable component that can be used for a future electric guitar tab section.
+- Electric Guitar Tabs Component(New Section)
+    * New tabbed section mirroring the acoustic tab section layout, covering six common electric body styles.
+        - Reused the same component used for the Acoustic Guitar Tabs Component
+        - Height adjustments planned for the polishing phase
+
+- Tab Component Overview
+    * The tab system is built with lightweight JavaScript and semantic HTML.
+        Features include:
+
+            - Click‑based tab activation
+            - Shared styling across acoustic and electric sections
+            - Smooth content transitions
+            - Easy extensibility for future guitar categories
 
 Tech Stack
 - HTML
