@@ -53,6 +53,6 @@
             });
         });
     }
-    tabsFolder('.tab','.content');
-
+      tabsFolder('.tab','.content');
+      tabsFolder('.electric-tab','.electric-content');  
 })();
