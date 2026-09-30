@@ -35,6 +35,17 @@ Current Features:
             - Smooth content transitions
             - Easy extensibility for future guitar categories
 
+- Guitarist Slider(New Section):
+    * Added a slider featuring 12 well known guitarists that showcases each guitarists signature guitar, playing style and musical attributes.
+       - Added full HTML structure for the slider.
+       - Implemented a reusable JS slider component to handle slide movement and track behavior.
+       - Style the slider and track using patterns from a previous slider component.
+       - Verified core functionality: manual sliding, track movement and layout responsiveness
+       - Upcoming enhancements:
+           - Auto-slide rotation
+           - Pause on image and prev/next button hover
+           - Additional Navigation controls if needed
+
 Tech Stack
 - HTML
 - CSS
