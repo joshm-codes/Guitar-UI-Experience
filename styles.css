@@ -189,6 +189,7 @@ header h2{
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
 }
 
+
 /* Double dot at fret 12 */
 /* Make sure the icon can hold positioned elements */
 .accordion-header .icon {
@@ -390,3 +391,107 @@ header h2{
         inset 0 0 8px rgba(0,0,0,0.25),
         0 3px 10px rgba(0,0,0,0.15);
 }
+    .rotator {
+        position: relative;
+        width: 470px;          /* smaller circle */
+        height: 470px;         /* same as width → perfect circle */
+        margin: 40px auto;     /* centered */
+        background: #4a2e1f;   /* guitar inner wood */
+        border-radius: 50%;
+        border: 8px solid #68402a;
+        box-shadow: inset 0 0 4px rgba(0,0,0,0.8);
+        padding: 0;            /* remove padding so circle stays clean */
+      }
+
+.soundhole {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 8px solid #000;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+
+  background: radial-gradient(
+    #4A2E1F 0%,
+    #4A2E1F 58%,
+    #000 59%,
+    #000 61%,
+    #C7B299 62%,
+    #C7B299 66%,
+    #000 67%,
+    #000 69%,
+    transparent 70%
+  );
+
+  opacity: 0;
+  transition: opacity 3.5s ease;
+}
+
+.soundhole.show {
+  opacity: 1;
+}
+
+.soundhole blockquote {
+  width: 260px;
+  height: 230px;
+  background-color: #F8F4E8;
+  border-radius: 50%;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Baskerville", serif;
+  color: #4A2E1F;
+}
+
+
+    .author {
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+      font-weight: bold;
+      font-style:oblique;
+      letter-spacing: 0.5px;
+      font-size: 15px;
+      text-align: center;
+      color: #3a1f14;
+      border-top: 1px solid rgba(0,0,0,0.15);
+    }
+    .string-pins {
+    display: flex;
+    justify-content: center;
+    gap: 34px;
+    margin-top: 20px;
+    padding-top: 30px ;
+  }
+
+  .string-pins .pin {
+      width: 20px;
+      height: 20px;
+      background: #3a1f14;
+      border-radius: 50%;
+      opacity: .4;
+      transition: opacity .3s ease;
+  }
+
+  .string-pins .pin.active {
+      opacity: 1;
+  }
+  footer{
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.15);
+    background: #4a2e1f;
+    color: rgba(255,250,240,0.9);
+    padding: 10px 15px;
+    margin: 0 auto 2px auto;
+    border-radius: 12px 12px 0 0;
+    font-size: 35px;
+  }
