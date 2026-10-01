@@ -46,6 +46,20 @@ Current Features:
            - Pause on image and prev/next button hover
            - Additional Navigation controls if needed
 
+- Soundhole Rotator Component(New Section):
+       - Added a guitar-themed rotator styled around an acoustic guitar soundhole layout.
+       - Includes rotating quotes/phrases with author styling.
+       - Added string-pin dots that rotate in conjunction with the rotating quotes.
+       - Includes pause and restart functionality with mouseenter and mouseleave.
+
+- Scroll Logic(New):
+       - Implemented scroll-based section activation for smoother navigation.
+       - Highlights active sections as user scrolls.
+
+Current Project Status:
+* All major components(accordion, tabs, slider, rotator and scroll logic) are implemented.  Project is entering the final polish phase.  This phase will include refining the layout, spacing, responsiveness and visual consistency.
+
+
 Tech Stack
 - HTML
 - CSS
