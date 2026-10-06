@@ -112,7 +112,7 @@
 
 (function(){
 
-    function setUpSlider(trackSelector,slideSelector,prevSelector,nextSelector){
+    function setUpSlider(trackSelector,slideSelector,prevSelector,nextSelector,intervalTime = 4000){
         const sliderTrack = document.querySelector(trackSelector);
         const slides = document.querySelectorAll(slideSelector);
         const prevBtn = document.querySelector(prevSelector);
@@ -141,6 +141,29 @@
             sliderTrack.style.transition = "transform 0.9s ease-in-out";
             sliderTrack.style.transform = `translateX(-${index *slideWidth}px)`;
         }
+
+        let autoSlideInterval = setInterval(() => {
+            if(isMoving)return;
+            isMoving = true;
+
+            index++;
+            updateSlider();
+        }, intervalTime);
+
+        function stopSlider(){
+            clearInterval(autoSlideInterval);
+        }
+
+        function restartSlider(){
+            autoSlideInterval = setInterval(() => {
+                if(isMoving)return;
+                isMoving = true;
+
+                index++;
+                updateSlider();
+            },intervalTime);
+        }
+
         prevBtn.addEventListener('click', () => {
             if(isMoving) return;
             isMoving = true;
@@ -148,6 +171,7 @@
             index--;
             updateSlider();
         });
+
         nextBtn.addEventListener('click', () => {
             if(isMoving) return;
             isMoving = true;
@@ -155,6 +179,20 @@
             index++;
             updateSlider();
         });
+        
+        const sliderImages = sliderTrack.querySelectorAll('.slide img');
+
+        const pauseEvents = ["mouseenter", "focus"];
+        const resumeEvents = ["mouseleave", "blur"];
+
+        [prevBtn, nextBtn, ...sliderImages].forEach(el => {
+            pauseEvents.forEach(ev => el.addEventListener(ev, stopSlider));
+            resumeEvents.forEach(ev => el.addEventListener(ev, restartSlider));
+        });
+
+       sliderTrack.addEventListener("focus", stopSlider);
+       sliderTrack.addEventListener("blur", restartSlider);
+
         sliderTrack.addEventListener("transitionend", () => {
             if(allSlides[index].classList.contains('clone') && index === allSlides.length - 1){
                 sliderTrack.style.transition = "none";
@@ -169,7 +207,7 @@
             isMoving = false;
         });
         window.addEventListener('resize', () => {
-            let slideWidth = allSlides[1].offsetWidth;
+            slideWidth = allSlides[1].offsetWidth;
             sliderTrack.style.transition = "none";
             sliderTrack.style.transform = `translateX(-${index * slideWidth}px)`;
         });

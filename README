@@ -45,6 +45,10 @@ Current Features:
            - Auto-slide rotation
            - Pause on image and prev/next button hover
            - Additional Navigation controls if needed
+    * Slider Enhancements(Oct 6, 2026):
+        - Added auto-slide interval 
+        - Implemented unified pause/resume event logic for buttons and slide images using grouped event mapping(mouseenter/focus to pause, mouseleave/blur to resume)
+        - Added focus handling on the slidertrack to improve keyboard accessibility and ensure the slider pauses with user interaction.
 
 - Soundhole Rotator Component(New Section):
        - Added a guitar-themed rotator styled around an acoustic guitar soundhole layout.

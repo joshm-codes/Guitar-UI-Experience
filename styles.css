@@ -69,17 +69,18 @@ nav{
   text-decoration: underline;
   padding: 10px 14px;
   display: block;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 14px 14px;
 }
 .nav li a.active {
-  color: #e67e22;
+  /*color: #e67e22;*/
+  color: #b38b59;
   font-weight: bold;
   border-bottom: 2px solid #e67e22;
 }
 .nav li a:hover {
   color: #bb8d64;
   font-weight: bold;
-  border-bottom: 2px solid #e67e22;
+  border-bottom: 2px solid #b38b59;
 }
 header h2{
     text-align: center;
