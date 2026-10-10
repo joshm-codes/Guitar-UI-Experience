@@ -112,7 +112,7 @@
 
 (function(){
 
-    function setUpSlider(trackSelector,slideSelector,prevSelector,nextSelector,intervalTime = 4000){
+    function setUpSlider(trackSelector,slideSelector,prevSelector,nextSelector,imageSelector,intervalTime = 4000){
         const sliderTrack = document.querySelector(trackSelector);
         const slides = document.querySelectorAll(slideSelector);
         const prevBtn = document.querySelector(prevSelector);
@@ -152,9 +152,11 @@
 
         function stopSlider(){
             clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
         }
 
         function restartSlider(){
+            if(autoSlideInterval)return;
             autoSlideInterval = setInterval(() => {
                 if(isMoving)return;
                 isMoving = true;
@@ -180,18 +182,15 @@
             updateSlider();
         });
         
-        const sliderImages = sliderTrack.querySelectorAll('.slide img');
+        const sliderImages = document.querySelectorAll(imageSelector);
 
         const pauseEvents = ["mouseenter", "focus"];
         const resumeEvents = ["mouseleave", "blur"];
 
-        [prevBtn, nextBtn, ...sliderImages].forEach(el => {
+        [prevBtn, nextBtn,sliderTrack, ...sliderImages].forEach(el => {
             pauseEvents.forEach(ev => el.addEventListener(ev, stopSlider));
             resumeEvents.forEach(ev => el.addEventListener(ev, restartSlider));
         });
-
-       sliderTrack.addEventListener("focus", stopSlider);
-       sliderTrack.addEventListener("blur", restartSlider);
 
         sliderTrack.addEventListener("transitionend", () => {
             if(allSlides[index].classList.contains('clone') && index === allSlides.length - 1){
@@ -212,7 +211,7 @@
             sliderTrack.style.transform = `translateX(-${index * slideWidth}px)`;
         });
     }
-    setUpSlider('.slider-track','.slide','#prev','#next');
+    setUpSlider('.slider-track','.slide','#prev','#next','.slide img');
 
 })();
 
