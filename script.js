@@ -130,6 +130,7 @@
         const allSlides = sliderTrack.querySelectorAll(slideSelector + ', .clone');
 
         let index = 1;
+        slides[0].classList.add('active');
         let slideWidth = allSlides[1].offsetWidth;
 
         sliderTrack.style.transition = "none";
@@ -139,7 +140,18 @@
 
         function updateSlider(){
             sliderTrack.style.transition = "transform 0.9s ease-in-out";
-            sliderTrack.style.transform = `translateX(-${index *slideWidth}px)`;
+            sliderTrack.style.transform = `translateX(-${index * slideWidth}px)`;
+       
+            allSlides.forEach(slide => slide.classList.remove('active'));
+
+            const realSlides = [...allSlides].filter(s => !s.classList.contains('clone'));
+
+            let realIndex = index - 1;
+
+            if (realIndex < 0) realIndex = realSlides.length - 1;
+            if (realIndex >= realSlides.length) realIndex = 0;
+
+            realSlides[realIndex].classList.add('active');
         }
 
         let autoSlideInterval = setInterval(() => {

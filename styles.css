@@ -1,6 +1,9 @@
 .page-container {
   max-width: 1100px;
   margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  background: rgba(255,255,255,0.6);
+  border-radius: 12px;
 }
 
 
@@ -34,9 +37,15 @@ body {
     background: #4a2e1f;
     color: rgba(255,250,240,0.9);
     padding: 10px 15px;
-    margin: 0 auto 2px auto;
+    margin: 0 auto 10px auto;
     border-radius: 12px 12px 0 0;
     font-size: 35px;
+    height: auto;
+    box-shadow: 0 4px 10px #68402a;
+}
+
+.site-header h1{
+  text-shadow: 4px 2px #68402a;
 }
 .guitar-banner{
     position: relative;
@@ -47,8 +56,15 @@ body {
 .guitar-banner img{
     width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
 }
+.guitar-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+}
+
 nav{
     position: sticky;
     top: 0;
@@ -60,26 +76,26 @@ nav{
     gap: 14px;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin-top: 2px;
     background:  #68402a;
     border-radius: 0 0 12px 12px;
 }
 .nav li a {
   color: white;
-  text-decoration: underline;
   padding: 10px 14px;
   display: block;
-  border-radius: 0 0 14px 14px;
+  border-radius: 0 0 12px 12px;
 }
 .nav li a.active {
-  /*color: #e67e22;*/
   color: #b38b59;
+  background: rgba(255,255,255,0.08);
   font-weight: bold;
   border-bottom: 2px solid #e67e22;
 }
 .nav li a:hover {
-  color: #bb8d64;
+  color: #4a2e1f;
   font-weight: bold;
+  background: rgba(255,255,255,0.1);
   border-bottom: 2px solid #b38b59;
 }
 header h2{
@@ -92,13 +108,38 @@ header h2{
     padding: 20px 30px;
 }
 .scroll-section{
-    padding: 50px;
+    padding: 60px 50px;
     margin: 0 auto;
     max-width: 900px;
 }
 .scroll-section h1,
 .scroll-section h2 {
-    margin-bottom: 24px;   
+    margin-bottom: 32px;   
+}
+#intro{
+  border-left: 4px solid #b38b59;
+  padding-left: 24px;
+}
+#intro p:first-of-type::first-letter {
+  font-size: 3.2rem;
+  font-weight: bold;
+  float: left;
+  line-height: 0.9;
+  padding-right: 10px;
+  color: #4a2e1f;
+}
+
+
+#intro, #benefits{
+  line-height: 1.75;
+}
+#benefits{
+  border-right: 4px solid #b38b59;
+  padding-right: 24px;
+}
+
+#benefits ul li{
+  line-height: 2.5;
 }
 .accordion-item{
     scroll-margin-top: 45px;
@@ -108,25 +149,34 @@ header h2{
   max-width: 900px;
   margin: 40px auto;
   border: 3px solid #b38b59;
-  border-radius: 4px;
+  border-radius: 6px;
   background: url('https://i.imgur.com/8fKQ8QF.jpg'); /* wood grain */
   background-size: cover;
   padding: 0; /* REQUIRED for full-width frets */
   overflow: visible;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+#accessories p{
+  line-height: 1.7;
 }
 .accordion-header {
   width: 100%;
   position: relative;
-  height: 110px;
+  height: 100px;
 
-  /* Full-width fret wood pattern */
-  background: repeating-linear-gradient(
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0)
+  ),
+  repeating-linear-gradient(
     90deg,
     #4a2e1f,
     #4a2e1f 12px,
     #3e271a 12px,
     #3e271a 24px
   );
+
   background-size: 100% 100%; /* ensures full coverage */
 
   color: #fff;
@@ -140,7 +190,7 @@ header h2{
   justify-content: space-between;
   align-items: center;
 
-  box-shadow: inset 0 -4px 6px rgba(0,0,0,0.4);
+  box-shadow: inset 0 -3px 5px rgba(0,0,0,0.25);
 }
 .accordion-header {
   cursor: pointer;
@@ -148,6 +198,7 @@ header h2{
 }
 .accordion-header:hover{
   color:#b38b59;
+  background-color: rgba(255,255,255,0.05);
   transform: scale(1.02);
 }
 .accordion-header .icon {
@@ -187,12 +238,9 @@ header h2{
   width: 18px;
   background: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 0 4px rgba(0,0,0,0.4);
+  box-shadow: 0 0 3px rgba(0,0,0,0.25);
 }
-
-
 /* Double dot at fret 12 */
-/* Make sure the icon can hold positioned elements */
 .accordion-header .icon {
     position: relative;
 }
@@ -222,9 +270,11 @@ header h2{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
-
-  background: #b38b59;
-  /*background: rgba(255, 255, 255, 0.85);*/
+  background: linear-gradient(
+  to bottom,
+  #b38b59,
+  #a67a4f
+);
   padding: 0 20px;
   border-bottom: 2px solid #b38b59;
 }
@@ -232,6 +282,14 @@ header h2{
 .accordion-item.active .accordion-content {
   max-height: 2000px;
   padding: 20px;
+}
+.accordion-item.active .accordion-content {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .accordion-content p {
@@ -251,15 +309,26 @@ header h2{
 .tab, .electric-tab{
   padding: 10px 18px;
   cursor: pointer;
-  background: #e8d7c3;
+  background: #75450f;
   border: 2px solid #68402a;
   border-bottom: none;
-  margin-right: 4px;
+  margin-right: 6px;
   border-radius: 6px 6px 0 0;
+  color: rgba(255,250,240,0.9);
+  transition: background-color .25s ease, border-color .25s ease;
+  background: linear-gradient(to bottom, #75450f, #5c360c);
+}
+
+.tab:hover, .electric-tab:hover{
+  background-color: #bb8d64;
+  border-color: #bb8d64;
 }
 .tab.active, .electric-tab.active{
-  background: #fdf6e3;
+  background: #3e271a;
   font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  border-bottom: 3px solid #bb8d64;
 }
 .content, .electric-content{
   background: #fdf6e3;
@@ -290,17 +359,31 @@ header h2{
   align-items: center;
   background: #fdf6e3;
   padding: 20px;
-  border-radius: 6px 6px 6px 6px;
+  border-radius: 6px 6px 0 0;
   opacity: 1;
   transform: translateY(0);
 }
+.content.active, .electric-content.active {
+  animation: fadeIn .4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .guitar-image{
-  width: 20%;
+  width: 28%;
   height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
   border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.section-intro{
+  line-height: 1.7;
 }
   .guitarist-slider {
     width: auto;
@@ -320,11 +403,16 @@ header h2{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 40px;
   box-sizing: border-box;
-  transition: none;
+  opacity: 0;
+  transition: opacity .8s ease;
   align-items: center;
 }
+.slide.active{
+  opacity: 1;
+}
+
 .slide h2{
   text-align: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

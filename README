@@ -1,77 +1,153 @@
 Guitar UI Experience:
 
-A front-end project showcasing interactive guitar-related UI components, including accordions, tabs, rotators, and scroll-based navigation. This project is a work in progress and will expand as new components are added.
+Introduction:
 
-Current Features:
-- Banner image
-- Nav bar with links to future sections
-- Interactive accordion sections (Benefits, Accessories)
-- Custom diamond icons with active state toggling
-- Smooth scroll behavior with scroll-margin offset
-- Fretboard-inspired UI styling
+An interactive front‑end project built around guitar‑themed UI components. This page blends custom visuals, smooth animations, and reusable JavaScript modules to create a digital guitar workshop — complete with fretboard accordions, body‑style tabs, guitarist sliders, and a soundhole quote rotator.
 
-- Acoustic Guitar Tabs Component(New Section):
-    * A reusable, self contained tab section representing six common acoustic guitar body styles.  This section contains the HTML, CSS and   Javascript needed to render and control the tab interface.
+The goal of the project is to explore UI component design, animation, and state management while maintaining a cohesive guitar‑inspired aesthetic.
 
-        - HTML: markup for tab buttons and panels
-        - CSS: spacing, colors, images, active tab states, hover effects
-        - Javascript: reusable tab component logic
-            * Querying tab buttons and tab panels
+Features Overview:
+
+  Banner and Navigation -
+    - Full-width guitar banner
+    - Sticky navigation bar
+    - Smooth scroll behavior with scroll-margin offsets
+    - Active section highlighting via scroll logic
+
+
+Fretboard Accordion Component:
+
+ A custom accordion styled to resemble a guitar fretboard.
+
+    Features:
+        - Full-width fretboard pattern using repeating linear gradients
+        - Metal fret bars and nut styling
+        - Dot inlays (including double-dot on 12th fret)
+        - Smooth open/close transitions
+        - Reusable accordion logic
+        - Active state toggling with custom diamond inlays
+
+Acoustic Guitar Tabs Component:
+
+ A reusable tab system showcasing six common acoustic guitar body styles.
+
+    Features:
+        - Semantic HTML for tab buttons and content panels
+        - Shared CSS for spacing, colors, images, hover states 
+          and active tabs
+        - Reusable JS tab logic
+            * Querying tab buttons and panels
             * Managing active states
-            * Ensures only one tab open at a time
-        This component is designed to present acoustic guitar body types in a clean and interactive layout.  It will also serve as a reusable component that can be used for a future electric guitar tab section.
+            * Ensuring only one tab is open at a time
 
-- Electric Guitar Tabs Component(New Section)
-    * New tabbed section mirroring the acoustic tab section layout, covering six common electric body styles.
-        - Reused the same component used for the Acoustic Guitar Tabs Component
-        - Height adjustments planned for the polishing phase
+Electric Guitar Tabs Component:
 
-- Tab Component Overview
-    * The tab system is built with lightweight JavaScript and semantic HTML.
-        Features include:
+ A parallel tab system covering six common electric guitar body styles.
 
-            - Click‑based tab activation
-            - Shared styling across acoustic and electric sections
-            - Smooth content transitions
-            - Easy extensibility for future guitar categories
+    Features: 
+        - Reuses the acoustic tab component logic
+        - Shares styling for consistency
+        - polished hover and active states
 
-- Guitarist Slider(New Section):
-    * Added a slider featuring 12 well known guitarists that showcases each guitarists signature guitar, playing style and musical attributes.
-       - Added full HTML structure for the slider.
-       - Implemented a reusable JS slider component to handle slide movement and track behavior.
-       - Style the slider and track using patterns from a previous slider component.
-       - Verified core functionality: manual sliding, track movement and layout responsiveness
-       - Upcoming enhancements:
-           - Auto-slide rotation
-           - Pause on image and prev/next button hover
-           - Additional Navigation controls if needed
-    * Slider Enhancements(Oct 6, 2026):
-        - Added auto-slide interval 
-        - Implemented unified pause/resume event logic for buttons and slide images using grouped event mapping(mouseenter/focus to pause, mouseleave/blur to resume)
-        - Added focus handling on the slidertrack to improve keyboard accessibility and ensure the slider pauses with user interaction.
+Guitarist Slider Component:
 
-- Soundhole Rotator Component(New Section):
-       - Added a guitar-themed rotator styled around an acoustic guitar soundhole layout.
-       - Includes rotating quotes/phrases with author styling.
-       - Added string-pin dots that rotate in conjunction with the rotating quotes.
-       - Includes pause and restart functionality with mouseenter and mouseleave.
+ An interactive slider featuring twelve well known guitarists, each with:
+  - Signature uitar
+  - Playing style
+  - Musical attributes
 
-- Scroll Logic(New):
-       - Implemented scroll-based section activation for smoother navigation.
-       - Highlights active sections as user scrolls.
+  Slider Features:
+   - Infinite looping using cloned slides
+   - Auto - slide rotation
+   - Pause on mouseenter/focus
+   - Remove on mouseleave/blur
+   - Manual prev/next button controls
+   - Smooth transform transitions
+   - Fade-in active slide animation
+   - Responsive layout
 
-Current Project Status:
-* All major components(accordion, tabs, slider, rotator and scroll logic) are implemented.  Project is entering the final polish phase.  This phase will include refining the layout, spacing, responsiveness and visual consistency.
+Soundhole Rotator Component:
+
+ A rotating quote display styled around an acoustic guitar soundhole.
+
+Features:
+   - Circular soundhole layout
+   - Rotating quotes with author attribution
+   - Rotating string-pin dots that are synchronized with the quote rotation
+   - Pause/resume on hover
+   - Smooth timing and transitions
 
 
-Tech Stack
-- HTML
-- CSS
-- JavaScript
+Scroll Logic:
 
-Running the Project
-Open index.html in a browser or use a local server (Live Server, etc.)
+ Scroll based Navigation
+   - Highlights active nav link based on scroll position
+   - Smooth scrolling between sections
+   - Scroll-margin offsets for clean section alignment
 
-Work in Progress
-More sections and UI components will be added as development continues.
+Components:
 
+ This projects is organized around modular, reusable UI components.
+    Accordion Component — fretboard‑styled headers, dot inlays, smooth height transitions
+
+    Tab Component — shared logic for acoustic and electric sections
+
+    Slider Component — infinite looping, auto‑slide, pause/resume logic
+
+    Rotator Component — soundhole‑themed quote rotator with synchronized decorative elements
+
+    Scroll Spy — highlights active sections based on scroll position
+
+Each component is built with lightweight vanilla JS and clean, semantic HTML.
+
+Key Learnings:
+
+ Throughout development, this project reinforced:
+
+   - Building reusable UI components with vanilla JavaScript
+
+   - Managing active states across multiple interactive sections
+
+   -  Creating custom themed UI (fretboards, soundholes, guitar silhouettes)
+
+   - Implementing smooth animations and transitions
+
+   - Improving accessibility with keyboard interaction and focus handling
+
+   - Designing cohesive visual systems across multiple components
+
+Screenshots:
+
+## 📸 Screenshots
+
+### Banner & Navigation
+<img src="screenshots/banner.png" width="800">
+
+### Fretboard Accordion
+<img src="screenshots/accordion.png" width="800">
+
+### Acoustic Guitar Tabs
+<img src="screenshots/acousticTab.png" width="800">
+
+### Electric Guitar Tabs
+<img src="screenshots/electricTab.png" width="800">
+
+### Guitarist Slider
+<img src="screenshots/slider.png" width="800">
+
+### Soundhole Rotator
+<img src="screenshots/rotator.png" width="800">
+
+
+Tech Stack:
+ - HTML
+ - CSS
+ - Javascript
+
+Running the Project:
+  
+  Open index.html in a browser or run via a local server(Live server recommended).
+
+Project Status:
+
+  All major components (accordion, tabs, slider, rotator, scroll logic) are implemented. The project is now in the final polish phase, focusing on layout refinement, spacing consistency, responsiveness, and visual cohesion.  
