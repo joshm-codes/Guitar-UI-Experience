@@ -85,6 +85,8 @@ nav{
   padding: 10px 14px;
   display: block;
   border-radius: 0 0 12px 12px;
+
+   -webkit-tap-highlight-color: transparent;
 }
 .nav li a.active {
   color: #b38b59;
