@@ -584,3 +584,366 @@ header h2{
     border-radius: 12px 12px 0 0;
     font-size: 35px;
   }
+  /* ============================================================
+   MOBILE RESPONSIVE FIXES — Desktop remains unchanged
+   ============================================================ */
+@media (max-width: 600px) {
+
+  /* Global spacing */
+  body {
+    padding: 8px;
+    overflow-x: hidden;
+  }
+
+  .page-container {
+    padding: 0 10px;
+    box-shadow: none;
+  }
+
+  /* Banner */
+  .guitar-banner {
+    height: 240px;
+  }
+
+  /* Navigation */
+  .nav {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .nav li a {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  /* Scroll sections */
+  .scroll-section {
+    padding: 30px 16px;
+  }
+
+  /* Intro drop cap fix */
+  #intro p:first-of-type::first-letter {
+    font-size: 2.4rem;
+    line-height: 1;
+  }
+
+  /* Tabs */
+  .tabs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tab, .electric-tab {
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Tab content */
+  .content p, .electric-content p {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  /* Accordion */
+  .accordion {
+    max-width: 100%;
+  }
+
+  .accordion-header {
+    height: 70px;
+    font-size: 16px;
+    padding: 0 12px;
+  }
+
+  /* Rotator */
+  .rotator {
+    width: 85vw;
+    height: 85vw;
+    max-width: 470px;
+    max-height: 470px;
+  }
+
+  .soundhole {
+    width: 65vw;
+    height: 65vw;
+    max-width: 340px;
+    max-height: 340px;
+  }
+
+  .soundhole blockquote {
+    width: 55vw;
+    height: 55vw;
+    max-width: 260px;
+    max-height: 230px;
+    padding: 12px;
+  }
+
+  /* Slider */
+  .guitarist-slider {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .slide img {
+    width: 90%;
+    height: auto;
+  }
+
+  .slide h2 {
+    font-size: 24px;
+  }
+
+  /* Guitar images */
+  .guitar-image {
+    width: 70%;
+  }
+
+  /* Footer */
+  footer {
+    font-size: 24px;
+    padding: 12px;
+  }
+}
+/* ============================================================
+   LANDSCAPE PHONE FIXES — max-width: 480px
+   ============================================================ */
+@media (max-width: 480px) {
+
+  /* Reduce vertical padding */
+  .scroll-section {
+    padding: 20px 12px;
+  }
+
+  /* Banner shorter in landscape */
+  .guitar-banner {
+    height: 180px;
+  }
+
+  /* Tabs tighter */
+  .tab, .electric-tab {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  /* Accordion headers */
+  .accordion-header {
+    height: 60px;
+    font-size: 15px;
+  }
+
+  /* Rotator slightly smaller */
+  .rotator {
+    width: 75vw;
+    height: 75vw;
+  }
+
+  .soundhole {
+    width: 55vw;
+    height: 55vw;
+  }
+
+  .soundhole blockquote {
+    width: 48vw;
+    height: 48vw;
+    padding: 10px;
+  }
+
+  /* Slider */
+  .guitarist-slider {
+    height: auto;
+  }
+
+  .slide h2 {
+    font-size: 20px;
+  }
+
+  .slide img {
+    width: 85%;
+  }
+
+  /* Guitar images */
+  .guitar-image {
+    width: 65%;
+  }
+}
+/* ============================================================
+   SMALL PHONE FIXES — max-width: 360px
+   ============================================================ */
+@media (max-width: 360px) {
+
+  body {
+    padding: 4px;
+  }
+
+  .page-container {
+    padding: 0 6px;
+  }
+
+  /* Navigation */
+  .nav {
+    gap: 4px;
+  }
+
+  .nav li a {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  /* Banner */
+  .guitar-banner {
+    height: 160px;
+  }
+
+  /* Scroll sections */
+  .scroll-section {
+    padding: 16px 10px;
+  }
+
+  /* Tabs */
+  .tab, .electric-tab {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+
+  /* Accordion headers */
+  .accordion-header {
+    height: 55px;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  /* Rotator */
+  .rotator {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .soundhole {
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .soundhole blockquote {
+    width: 60vw;
+    height: 60vw;
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  /* Slider */
+  .slide h2 {
+    font-size: 18px;
+  }
+
+  .slide img {
+    width: 80%;
+  }
+
+  /* Guitar images */
+  .guitar-image {
+    width: 80%;
+  }
+
+  footer {
+    font-size: 20px;
+    padding: 10px;
+  }
+}
+/* ============================================================
+   TABLET PORTRAIT — max-width: 768px
+   ============================================================ */
+@media (max-width: 768px) {
+
+  .scroll-section {
+    padding: 40px 30px;
+  }
+
+  .guitar-banner {
+    height: 300px;
+  }
+
+  .rotator {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .soundhole {
+    width: 45vw;
+    height: 45vw;
+  }
+
+  .tab, .electric-tab {
+    padding: 10px 16px;
+    font-size: 1rem;
+  }
+
+  .accordion-header {
+    height: 85px;
+    font-size: 18px;
+  }
+}
+/* ============================================================
+   LARGE PHONE / PHABLET — max-width: 420px
+   ============================================================ */
+@media (max-width: 420px) {
+
+  .scroll-section {
+    padding: 24px 14px;
+  }
+
+  .accordion-header {
+    height: 65px;
+    font-size: 15px;
+  }
+
+  .rotator {
+    width: 80vw;
+    height: 80vw;
+  }
+
+  .soundhole {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .tab, .electric-tab {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+/* ============================================================
+   ULTRA-WIDE DESKTOP — min-width: 1400px
+   ============================================================ */
+@media (min-width: 1400px) {
+
+  .page-container {
+    max-width: 1300px;
+  }
+
+  .guitar-banner {
+    height: 500px;
+  }
+
+  .scroll-section {
+    padding: 80px 60px;
+  }
+
+  .rotator {
+    width: 520px;
+    height: 520px;
+  }
+
+  .soundhole {
+    width: 380px;
+    height: 380px;
+  }
+
+  .guitarist-slider {
+    height: 600px;
+  }
+}
+
+
+
+
