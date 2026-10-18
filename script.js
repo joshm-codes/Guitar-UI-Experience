@@ -75,7 +75,14 @@
                     },600);
                 }
                 accordions.forEach(other =>{
-                    if(other !== item)other.classList.remove('active');
+                    if(other !== item){
+                        other.classList.remove('active');
+
+                    const otherIcon = other.querySelector(iconSelector);
+                     if(otherIcon){
+                        otherIcon.textContent = "◆";
+                    } 
+                }
                 });
             });
         });

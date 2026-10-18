@@ -248,18 +248,15 @@ header h2{
 }
 
 /* Add the right-side dot for the 12th fret */
-.accordion-item:nth-child(12) .accordion-header .icon::before {
-    content: "";
+.fret-dot-right{
     position: absolute;
     top: 50%;
-    right: 100%; /* places the dot immediately to the left of the + */
+    right: 20px;
     transform: translateY(-50%);
-    height: 18px;   /* match your existing dot size */
+    height: 18px;
     width: 18px;
-    background: #fff;
+    background: white;
     border-radius: 50%;
-    box-shadow: 0 0 4px rgba(0,0,0,0.4);
-    pointer-events: none;
 }
 
 .accordion-item {
