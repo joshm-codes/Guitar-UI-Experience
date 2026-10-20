@@ -96,22 +96,22 @@
         const tabs = document.querySelectorAll(tabSelector);
         const contents = document.querySelectorAll(contentSelector);
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
+      document.addEventListener('click', e => {
+        const tab = e.target.closest(tabSelector);
+        if(!tab)return;
 
-                tabs.forEach(t => t.classList.remove('active'));
-                contents.forEach(c => c.classList.remove('active'));
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
 
-                tab.classList.add('active');
+        tab.classList.add('active');
 
-                const targetId = tab.dataset.target;
-                const targetContent = document.getElementById(targetId);
+        const targetId = tab.dataset.target;
+        const targetContent = document.getElementById(targetId);
 
-                if(targetId){
-                    targetContent.classList.add('active');
-                }
-            });
-        });
+        if(targetContent){
+            targetContent.classList.add('active');
+        }
+      });
     }
       tabsFolder('.tab','.content');
       tabsFolder('.electric-tab','.electric-content');  
