@@ -124,6 +124,14 @@
         const slides = document.querySelectorAll(slideSelector);
         const prevBtn = document.querySelector(prevSelector);
         const nextBtn = document.querySelector(nextSelector);
+        const sliderImages = document.querySelectorAll(imageSelector);
+
+    if(
+        !sliderTrack ||
+        !prevBtn ||
+        !nextBtn ||
+        !slides.length
+    ) return;
 
         const firstClone = slides[0].cloneNode(true);
         const lastClone = slides[slides.length - 1].cloneNode(true);
@@ -184,24 +192,26 @@
                 updateSlider();
             },intervalTime);
         }
-
-        prevBtn.addEventListener('click', () => {
-            if(isMoving) return;
-            isMoving = true;
-
-            index--;
-            updateSlider();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if(isMoving) return;
+        
+        function nextSlide(){
+            if(isMoving)return;
             isMoving = true;
 
             index++;
             updateSlider();
-        });
+        }
+        function prevSlide(){
+            if(isMoving)return;
+            isMoving = true;
+
+            index--;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
         
-        const sliderImages = document.querySelectorAll(imageSelector);
+        
 
         const pauseEvents = ["mouseenter", "focus"];
         const resumeEvents = ["mouseleave", "blur"];
@@ -224,6 +234,32 @@
             }
             isMoving = false;
         });
+
+        let startX = 0;
+        let endX = 0;
+        const swipeThreshold = 50;
+
+        sliderTrack.addEventListener("touchstart", (e) => {
+            stopSlider();
+            startX = e.touches[0].clientX;
+        });
+        sliderTrack.addEventListener("touchend", (e) => {
+            endX = e.changedTouches[0].clientX;
+
+            handleSwipe();
+            restartSlider();
+        });
+        function handleSwipe(){
+            const distance = startX - endX;
+
+            if(distance > swipeThreshold){
+                nextSlide();
+            }
+            if(distance < -swipeThreshold){
+                prevSlide();
+            }
+        }
+
         window.addEventListener('resize', () => {
             slideWidth = allSlides[1].offsetWidth;
             sliderTrack.style.transition = "none";
