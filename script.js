@@ -275,9 +275,11 @@
     function setUpRotator(quoteSelector,containerSelector,intervalTime = 4000){
         const quotes = document.querySelectorAll(quoteSelector);
         const container = document.querySelector(containerSelector);
+        const pins = document.querySelectorAll('.string-pins .pin');
 
         let index = 0;
         let rotatorInterval = null;
+        let rotatorRestartTimeout = null;
 
         if(quotes.length === 0 || !container) return;
 
@@ -285,33 +287,25 @@
 
         function startRotator(){
             if(rotatorInterval)return;
+
             rotatorInterval = setInterval(() => {
                moveNext();
             },intervalTime);
         }
+
         function stopRotator(){
             clearInterval(rotatorInterval);
             rotatorInterval = null;
         }
-        quotes.forEach(bq => bq.classList.remove('show'));
-        quotes[index].classList.add('show');
-        pinsIndicator.update(index);
-        
-        startRotator();
 
-        if(container){
-            container.addEventListener("mouseenter", stopRotator);
-            container.addEventListener("focus", stopRotator);
-            container.addEventListener("mouseleave", startRotator);
-            container.addEventListener("blur", startRotator);
-        }
-        function moveNext(){
+         function moveNext(){
             quotes[index].classList.remove('show');
             index = (index + 1) % quotes.length;
             quotes[index].classList.add('show');
 
             pinsIndicator.update(index);
         }
+
         function movePrev(){
             quotes[index].classList.remove('show');
             index = (index - 1 + quotes.length) % quotes.length;
@@ -319,6 +313,53 @@
 
             pinsIndicator.update(index);
         }
+
+        quotes.forEach(bq => bq.classList.remove('show'));
+        quotes[index].classList.add('show');
+
+        pinsIndicator.update(index);
+        
+        startRotator();
+
+        
+            container.addEventListener("mouseenter", () => {
+                clearTimeout(rotatorRestartTimeout);
+                stopRotator()
+            });
+            container.addEventListener("focus", () => {
+                clearTimeout(rotatorRestartTimeout);
+                stopRotator()
+            });
+            container.addEventListener("mouseleave", startRotator);
+            container.addEventListener("blur", startRotator);
+        
+       
+        
+
+        pins.forEach((pin,i) => {
+
+            pin.addEventListener('mouseenter', () => {
+                clearTimeout(rotatorRestartTimeout);
+                stopRotator()
+            });
+            pin.addEventListener('mouseleave', startRotator);
+            pin.addEventListener('click', () => {
+                    stopRotator();
+                    
+                    clearTimeout(rotatorRestartTimeout);
+
+                    quotes[index].classList.remove('show');
+                    index = i;
+                    quotes[index].classList.add('show');
+
+                    pinsIndicator.update(index);
+
+                    rotatorRestartTimeout = setTimeout(() => {
+                        startRotator();
+                    },intervalTime);
+                });
+        });
+        
 
         let startX = 0;
         let endX= 0;
