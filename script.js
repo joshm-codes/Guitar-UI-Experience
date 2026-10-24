@@ -286,11 +286,7 @@
         function startRotator(){
             if(rotatorInterval)return;
             rotatorInterval = setInterval(() => {
-                quotes[index].classList.remove('show');
-                index = (index + 1) % quotes.length;
-                quotes[index].classList.add('show');
-
-                pinsIndicator.update(index);
+               moveNext();
             },intervalTime);
         }
         function stopRotator(){
@@ -308,6 +304,47 @@
             container.addEventListener("focus", stopRotator);
             container.addEventListener("mouseleave", startRotator);
             container.addEventListener("blur", startRotator);
+        }
+        function moveNext(){
+            quotes[index].classList.remove('show');
+            index = (index + 1) % quotes.length;
+            quotes[index].classList.add('show');
+
+            pinsIndicator.update(index);
+        }
+        function movePrev(){
+            quotes[index].classList.remove('show');
+            index = (index - 1 + quotes.length) % quotes.length;
+            quotes[index].classList.add('show');
+
+            pinsIndicator.update(index);
+        }
+
+        let startX = 0;
+        let endX= 0;
+        const swipeThreshold = 50;
+
+        container.addEventListener("touchstart", (e) => {
+            stopRotator();
+            startX = e.touches[0].clientX;
+        });
+
+        container.addEventListener("touchend", (e) => {
+            endX = e.changedTouches[0].clientX;
+
+            handleSwipe();
+            startRotator();
+        });
+
+        function handleSwipe(){
+            const distance = startX - endX;
+
+            if(distance > swipeThreshold){
+                moveNext();
+            }
+            else if(distance < -swipeThreshold){
+                movePrev();
+            }
         }
     }
     setUpRotator('.rotator .soundhole','.rotator');
