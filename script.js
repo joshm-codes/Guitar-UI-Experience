@@ -272,10 +272,10 @@
 
 (function(){
 
-    function setUpRotator(quoteSelector,containerSelector,intervalTime = 4000){
+    function setUpRotator(quoteSelector,containerSelector,pinsSelector,intervalTime = 4000){
         const quotes = document.querySelectorAll(quoteSelector);
         const container = document.querySelector(containerSelector);
-        const pins = document.querySelectorAll('.string-pins .pin');
+        const pins = document.querySelectorAll(pinsSelector);
 
         let index = 0;
         let rotatorInterval = null;
@@ -283,7 +283,7 @@
 
         if(quotes.length === 0 || !container) return;
 
-        const pinsIndicator = createPinsIndicator('.string-pins .pin');
+        const pinsIndicator = createPinsIndicator(pinsSelector);
 
         function startRotator(){
             if(rotatorInterval)return;
@@ -299,26 +299,16 @@
         }
 
          function moveNext(){
-            quotes[index].classList.remove('show');
-            index = (index + 1) % quotes.length;
-            quotes[index].classList.add('show');
-
-            pinsIndicator.update(index);
+            showQuote((index + 1) % quotes.length);
         }
 
         function movePrev(){
-            quotes[index].classList.remove('show');
-            index = (index - 1 + quotes.length) % quotes.length;
-            quotes[index].classList.add('show');
-
-            pinsIndicator.update(index);
+            showQuote((index - 1 + quotes.length) % quotes.length);
         }
 
         quotes.forEach(bq => bq.classList.remove('show'));
-        quotes[index].classList.add('show');
+        showQuote(index);
 
-        pinsIndicator.update(index);
-        
         startRotator();
 
         
@@ -333,9 +323,6 @@
             container.addEventListener("mouseleave", startRotator);
             container.addEventListener("blur", startRotator);
         
-       
-        
-
         pins.forEach((pin,i) => {
 
             pin.addEventListener('mouseenter', () => {
@@ -348,17 +335,21 @@
                     
                     clearTimeout(rotatorRestartTimeout);
 
-                    quotes[index].classList.remove('show');
-                    index = i;
-                    quotes[index].classList.add('show');
-
-                    pinsIndicator.update(index);
+                    showQuote(i);
 
                     rotatorRestartTimeout = setTimeout(() => {
                         startRotator();
                     },intervalTime);
                 });
         });
+
+        function showQuote(newIndex){
+            quotes[index].classList.remove('show');
+            index = newIndex;
+            quotes[index].classList.add('show');
+
+            pinsIndicator.update(index);
+        }
         
 
         let startX = 0;
@@ -373,8 +364,12 @@
         container.addEventListener("touchend", (e) => {
             endX = e.changedTouches[0].clientX;
 
+            clearTimeout(rotatorRestartTimeout);
+
             handleSwipe();
-            startRotator();
+            rotatorRestartTimeout = setTimeout(() => {
+                startRotator();
+            }, intervalTime);
         });
 
         function handleSwipe(){
@@ -388,7 +383,7 @@
             }
         }
     }
-    setUpRotator('.rotator .soundhole','.rotator');
+    setUpRotator('.rotator .soundhole','.rotator','.string-pins .pin');
 
     function createPinsIndicator(pinSelector){
             const pins = document.querySelectorAll(pinSelector);

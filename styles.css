@@ -492,8 +492,8 @@ header h2{
       }
 
 .soundhole {
-  width: 340px;
-  height: 340px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -527,8 +527,8 @@ header h2{
 }
 
 .soundhole blockquote {
-  width: 260px;
-  height: 230px;
+  width: 290px;
+  height: 260px;
   background-color: #F8F4E8;
   border-radius: 50%;
   padding: 20px;
@@ -572,6 +572,13 @@ header h2{
 
   .string-pins .pin.active {
       opacity: 1;
+  }
+  .pin{
+    transition: transform 0.2s ease;
+  }
+  .pin:hover{
+    cursor: pointer;
+    transform: scale(1.15);
   }
   footer{
     text-align: center;
